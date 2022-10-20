@@ -1,0 +1,11 @@
+# This is a template dataset configuration file
+# a dataset configuration file contains the following values (some are optional as indicated)
+
+data_path: # Full path to a directory where the data is stored
+perform_sanity: # binary value to whether to go through the whole data in the beginning to make sure every thing in order
+params: # Optional: set the parameters of the physical model by yourself. Otherwise, it will be loaded from `parameters.mat`
+  N: #
+  M: #
+  K: #
+  fc: #
+  B: #

@@ -1,0 +1,5 @@
+# This is a template loss configuration file
+# a loss configuration file contains the following values (some are optional as indicated)
+
+type: # LossType: now we only support Base
+lambdas: # Optional[Mapping[str, float]]: based on the loss type we should define weights for each loss term

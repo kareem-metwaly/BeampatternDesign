@@ -1,0 +1,4 @@
+[flake8]
+# Independently enforced in .black.toml and .isort.cfg
+max-line-length = 120
+ignore =W503, E203

@@ -1,0 +1,31 @@
+auto_lr_find: false
+lr: 1e-2
+gradient_clip_val: 0
+max_epochs: 500
+optimizer: "adam"
+#lr_scheduler:
+#  - "reduce on plateau"
+#  - min_lr: 1e-6
+
+# related to fetching data
+num_workers: 16
+batch_size: 40
+precision: 32
+train_val_test_split: [0.999, 0.001, 0]
+#random_seed: # Optional[int] = None: used for reproducing the same shuffling of the train, test and validation datasets.
+
+# etc
+gpus: [0]
+checkpoints_dir: "./checkpoints/"
+log_every_n_steps: 10
+val_check_interval: 1000  # check validation after val_check_interval batches
+
+#phases:
+#  -
+#    epoch: 0
+#    unfreeze: ["initial"]
+#    freeze: "remaining"
+#  -
+#    epoch: 30
+#    unfreeze: "all"
+#    freeze: "nothing"

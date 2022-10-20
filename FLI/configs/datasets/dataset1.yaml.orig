@@ -1,0 +1,8 @@
+<<<<<<< Updated upstream
+data_path: "../datasets/PDR_generated/N_32_M_40_K90_B200000000_fc1000000000" # Full path to a directory where the data is stored
+#data_path: "../datasets/PDR_generated/test" # Full path to a directory where the data is stored
+=======
+data_path: "../datasets/PDR_generated/test/" # Full path to a directory where the data is stored
+>>>>>>> Stashed changes
+perform_sanity: false # binary value to whether to go through the whole data in the beginning to make sure every thing in order
+params: !include parameters.yaml

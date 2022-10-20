@@ -1,0 +1,20 @@
+# This is a template training configuration file
+# a training configuration file contains the following values (some are optional as indicated)
+
+auto_lr_find: # bool: whether to find the lr automatically. If set, it alters the value of lr
+lr: # Optional[float]: a starting learning rate; might change due to lr_scheduler
+gradient_clip_val: # Optional[float = 0]: a clipping value for the global norm set to 0 to deactivate
+max_epochs: # int
+optimizer: # OptimizerType: only `adam` is supported
+lr_scheduler: # t.Tuple[LRSchedulerType, LRSchedulerConfigs]: for example `reduce on plateau`
+
+# related to fetching data
+num_workers: # int: for fetching the data
+batch_size: # int
+precision: # int: for example 16 or 32
+train_val_test_split: # Tuple[float, float, float]: tuple of three float values from 0 to 1 representing the split for training, validation and testing
+random_seed: # Optional[int] = None: used for reproducing the same shuffling of the train, test and validation datasets.
+
+# etc
+gpus: # str, which gpus to use as a str of comma separated values
+checkpoints_dir: # location to save checkpoints

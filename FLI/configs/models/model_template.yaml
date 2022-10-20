@@ -1,0 +1,14 @@
+# This is a template mode configuration file
+# a model configuration file should contain the following values
+# you can use `!include foo.yaml` as a value to include data in `foo.yaml` in this location
+
+n_expand: # (int) the size of expansion (Ne)
+n_prune: # (int) the size of prune (Np)
+initial: # (Sequence[FullyConnectedConfig]) the initial subnetwork configurations
+direction_evaluation: # (Sequence[FullyConnectedConfig]) the direction evaluation subnetwork configurations
+trainable_prune: # (bool, default: False) whether to have a trainable prune layers or fixed prune layer
+prune_params: # (Sequence[FullyConnectedConfig], default: None) parameters of the trainable prune layer
+expand: # (Sequence[FullyConnectedConfig]) expand layer configurations
+n_steps: # (int) how many unfolded steps
+shared_weights: # (bool, default: True)  whether to use the same network for every step.
+epsilon: # (float, default: 1e-4) for numerical stability

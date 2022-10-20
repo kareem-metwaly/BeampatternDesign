@@ -1,0 +1,7 @@
+# This is a template parameters configuration file
+
+N: 32
+M: 40
+K: 90
+fc: 1e9
+B: 200e6

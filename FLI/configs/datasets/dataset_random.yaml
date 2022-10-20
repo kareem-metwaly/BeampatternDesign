@@ -1,0 +1,5 @@
+type: "RandomBeamPattern"
+max_length: ~
+#data_path: "../datasets/PDR_generated/test" # Full path to a directory where the data is stored
+perform_sanity: false # binary value to whether to go through the whole data in the beginning to make sure every thing in order
+params: !include parameters.yaml

@@ -1,0 +1,61 @@
+some variables to be stored: # this name can be anything as long as it's not used by config file
+  - !store datasets/parameters.yaml, <<N>>, N
+  - !store datasets/parameters.yaml, <<K>> * <<N>>, KN
+  - !store datasets/parameters.yaml, <<M>> * <<N>>, MN
+  - !store_yaml
+    single_mlp_layer:
+      in_channels: 1000
+      out_channels: 1000
+      norm: complex_batchnorm
+      activation: crelu
+
+n_steps: 5
+shared_weights: false
+epsilon: 1e-5
+n_expand: 5
+n_prune: 2
+
+initial: # (Sequence[FullyConnectedConfig]) the initial subnetwork configurations
+  - in_channels: !load <<KN>>  # it should take the beampattern
+    out_channels: 1000
+    norm: complex_batchnorm
+    activation: crelu
+  - !for_each 5, single_mlp_layer
+  - in_channels: 1000
+    out_channels: !load <<MN>>  # it should return waveform
+    norm: complex_batchnorm
+    activation: retract
+
+direction_evaluation: # (Sequence[FullyConnectedConfig]) the direction evaluation subnetwork configurations
+  - in_channels: !load <<MN>>
+    out_channels: 1000
+    norm: complex_batchnorm
+    activation: crelu
+  - !for_each 2, single_mlp_layer
+  - in_channels: 1000
+    out_channels: !load <<MN>>
+    norm: complex_batchnorm
+    activation: none
+
+trainable_prune: false
+prune_params:
+#  - in_channels: !load <<MN>> * <<n_expand>>
+#    out_channels: 1000
+#    norm: complex_batchnorm
+#    activation: crelu
+#  - !for_each 5, single_mlp_layer
+#  - in_channels: 1000
+#    out_channels: !load <<MN>> * <<n_prune>>
+#    norm: complex_batchnorm
+#    activation: retract
+
+expand: # (Sequence[FullyConnectedConfig]) expand layer configurations
+  - in_channels: !load <<MN>> * <<n_prune>>
+    out_channels: 1000
+    norm: complex_batchnorm
+    activation: crelu
+  - !for_each 2, single_mlp_layer
+  - in_channels: 1000
+    out_channels: !load <<MN>> * <<n_expand>>
+    norm: complex_batchnorm
+    activation: retract

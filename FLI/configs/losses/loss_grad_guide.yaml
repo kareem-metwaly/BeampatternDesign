@@ -1,0 +1,20 @@
+type: "BuildLosses"
+outputs:
+  - name: "estimated_waveforms"
+    gt: "beampattern"
+    type: "Objective"
+    weight: 1
+
+  - name: "initial"
+    gt: "beampattern"
+    type: "Objective"
+    weight: 1
+
+  - name: "steps"
+    gt: "beampattern"
+    type: "Objective"
+    weight: 0.5
+
+additional:  # built inside the model itself
+  - type: "GradientGuidedLoss"
+    weight: 1e-9

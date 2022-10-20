@@ -1,0 +1,60 @@
+repos:
+    # Python Hooks
+    - repo: https://github.com/psf/black
+      rev: 22.3.0
+      hooks:
+      - id: black
+        name: "python:black"
+        entry: black --config .black.toml
+    - repo: https://gitlab.com/pycqa/flake8
+      rev: 4.0.1
+      hooks:
+      - id: flake8
+        name: "python:flake8"
+    - repo: https://github.com/pycqa/isort
+      rev: 5.10.1
+      hooks:
+      - id: isort
+        name: "python:isort"
+
+    # Matlab Hooks
+    - repo: https://github.com/sco1/pre-commit-matlab
+      rev: v1.2.0
+      hooks:
+      - id: matlab-reflow-comments
+        args: [--ignore-indented=False]
+
+    # some additional hooks combined
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.2.0  # Use the ref you want to point at
+      hooks:
+      - id: trailing-whitespace
+      - id: check-docstring-first
+      - id: check-case-conflict
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-yaml
+        args: [--unsafe]
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: fix-byte-order-marker
+      - id: pretty-format-json
+      - id: requirements-txt-fixer
+
+    - repo: https://github.com/econchick/interrogate
+      rev: 1.5.0
+      hooks:
+      - id: interrogate
+        args: [--fail-under=80, --verbose]
+
+        #    - repo: https://github.com/pycqa/pydocstyle
+        #      rev: 6.1.1
+        #      hooks:
+        #      - id: pydocstyle
+        #        args: [--ignore=D107,D204]
+        #
+    - repo: https://github.com/myint/docformatter
+      rev: v1.3.1
+      hooks:
+      - id: docformatter
+        args: [--in-place]
