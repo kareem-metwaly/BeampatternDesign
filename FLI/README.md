@@ -12,6 +12,3 @@ Most importantly, it contains [base_classes.py](utils/base_classes.py) where it 
 
 3. [dataset.py](datasets/base_dataset.py): contains the dataset module to load data that was saved from Matlab and prepares it for PyTorch model.
 
-
-## Progress so far:
-Working on implementation of the basic blocks; probably will borrow from GlideNet
