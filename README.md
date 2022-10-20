@@ -44,6 +44,9 @@ and the exansion operation concatenates to the its inputs as follows.
 ![expand](imgs/expand.png)
 
 
+6. We set the number of unrolled steps $\kappa$ to $5$.
+
+
 ## Code 
 
 ### Train
