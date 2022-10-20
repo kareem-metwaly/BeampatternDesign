@@ -78,7 +78,7 @@ python test.py \
   --model "Model1" \
   --datamodule "BeamPatternDataModule" \
   --callbacks "LogValBeampatternResult" "LogValNumericalResult" "LogScenarioResult" \
-  --file "/home/krm/ext/unrolling_cmc/unrolled_PDR/checkpoints/v64e57s1515773.ckpt"
+  --file "path_to_the_checkpoint_file.ckpt"
 ```
 
 
