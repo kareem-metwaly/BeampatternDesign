@@ -1,9 +1,9 @@
-# FLI for Radar Beampattern Design under Constant Modulus Constraint
+# FLED for Radar Beampattern Design under Constant Modulus Constraint
 
 
 ## Description
 
-FLI (Fast, Learned and Interpretable) is a deep learning algorithm that employs the concept of algorithm unrolling to solve the beampattern design problem and the constant modulus constraint.
+FLED is a deep learning algorithm that employs the concept of algorithm unrolling to solve the beampattern design problem and the constant modulus constraint.
 
 
 ## Architecture Details
@@ -13,7 +13,7 @@ Although the code is pretty flexible and can be configured the way you may like,
 
 1. The network structure is visualized as follows.
 
-![Architecture](imgs/fli.png)
+![Architecture](imgs/fled.png)
 
 where the projection and retraction operations are defined as follows.
 
@@ -24,7 +24,7 @@ and the exansion operation concatenates to the its inputs as follows.
 ![expand](imgs/expand_visualization.png)
 
 
-2. The implementation details of each unrolled step (block in FLI) is defined as follows.
+2. The implementation details of each unrolled step (block in FLED) is defined as follows.
 
 ![details](imgs/unrolled_step.png)
 
@@ -51,9 +51,9 @@ and the exansion operation concatenates to the its inputs as follows.
 
 ### Train
 
-A train example is in [train.sh](FLI/train.sh). You can either use it or play with the configurations to your linking such as follows.
+A train example is in [train.sh](FLED/train.sh). You can either use it or play with the configurations to your linking such as follows.
 ```sh
-cd FLI
+cd FLED
 python train.py \
   --model-config "model1" \
   --train-config "train1" \
@@ -66,12 +66,12 @@ python train.py \
               "LogScenarioResult"
 ```
 
-all configs are set in [configs](FLI/configs) where we have separate folders for [models](FLI/configs/models/), [train](FLI/configs/train/), [losses](FLI/configs/losses/) and [datasets](FLI/configs/datasets/)
+all configs are set in [configs](FLED/configs) where we have separate folders for [models](FLED/configs/models/), [train](FLED/configs/train/), [losses](FLED/configs/losses/) and [datasets](FLED/configs/datasets/)
 
 ### Test
 
 
-An example for testing the code is found in [test.py](FLI/test.py). You can use it as follows.
+An example for testing the code is found in [test.py](FLED/test.py). You can use it as follows.
 ```sh
 python test.py \
   --model-config "model1" \
@@ -87,11 +87,11 @@ python test.py \
 
 ### Structure
 
-1. [utils](FLI/utils): contains some utilities that are used throughout the code.
-Most importantly, it contains [base_classes.py](FLI/utils/base_classes.py) where it has all the configuration classes.
+1. [utils](FLED/utils): contains some utilities that are used throughout the code.
+Most importantly, it contains [base_classes.py](FLED/utils/base_classes.py) where it has all the configuration classes.
 
-2. [configs](FLI/configs): contains all examples of configurations used for datasets + training models + testing.
+2. [configs](FLED/configs): contains all examples of configurations used for datasets + training models + testing.
 
-3. [dataset.py](FLI/datasets/base_dataset.py): contains the dataset module to load data that was saved from Matlab and prepares it for PyTorch model.
+3. [dataset.py](FLED/datasets/base_dataset.py): contains the dataset module to load data that was saved from Matlab and prepares it for PyTorch model.
 
 
